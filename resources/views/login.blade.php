@@ -27,6 +27,14 @@
 
       <form action="/loginproses" method="post">
         @csrf
+        @if(count($errors) > 0)
+            @foreach( $errors->all() as $message )
+                <div class="alert alert-danger display-hide">
+                     <button class="close" data-close="alert"></button>
+                     <span>{{ $message }}</span>
+                </div>
+            @endforeach
+        @endif
         <div class="input-group mb-3">
           <input type="email" class="form-control" name="email"placeholder="Email">
           <div class="input-group-append">
@@ -65,7 +73,7 @@
         <a href="forgot-password.html">I forgot my password</a>
       </p>
       <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
+        <a href="/register" class="text-center">Register</a>
       </p>
     </div>
     <!-- /.card-body -->
