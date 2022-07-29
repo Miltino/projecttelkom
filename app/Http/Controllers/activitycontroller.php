@@ -14,4 +14,5 @@ class activitycontroller extends Controller
         // dd($activityLog);
         return view('/loglogin',compact('activityLog'));
     }
+    
 }

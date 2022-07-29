@@ -27,4 +27,4 @@ route::get('/register',[LoginController::class,'register'])->name('register')->m
 route::post('/registeruser',[LoginController::class,'registeruser'])->name('registeruser');
 route::post('/loginproses',[LoginController::class,'loginproses'])->name('loginproses');
 route::get('/logout',[LoginController::class, 'logout'])->name('logout')->middleware('auth');
-route::get('/activity',[activitycontroller::class,'activityLog'])->name('activity');
+route::get('/activity',[activitycontroller::class,'activityLog'])->name('activity')->middleware('auth');

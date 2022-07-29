@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ActivityLog;
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -24,14 +25,14 @@ class LoginController extends Controller
             $user = Auth::user();
             Session::put('user',$user);
             $user=Session::get('user');
-
+    
             $name = $user->name;
             $email = $user->email;
             $dt = Carbon::now();
             $todayDate = $dt->toDayDateTimeString();
-
+    
             $activityLog = [
-
+    
                 'name' => $name,
                 'email' => $email,
                 'description' => "Login",
